@@ -59,7 +59,7 @@ router.route("/update/:id").put(async (req, res) => {
 router.route("/delete/:id").delete(async (req, res) => {
   let recipeid = req.params.id;
   console.log(recipeid);
-  await Recipe.findOneAndDelete({ recipeid })
+  await Recipe.findOneAndRemove({ recipeid })
     .then(() => {
       res.status(200).send({ status: "Recipe Deleted" });
     })
