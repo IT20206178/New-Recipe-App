@@ -1,6 +1,6 @@
 const router=require("express").Router();
 const { response } = require("express");
-let Driver=require("../models/recipe");
+let Recipe=require("../models/recipe");
 
 //add recipe
 router.route("/add").post((req,res)=>{
