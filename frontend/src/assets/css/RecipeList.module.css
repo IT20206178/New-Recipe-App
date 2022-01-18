@@ -85,6 +85,18 @@
     margin-right: 10px;
     transition: background-color 0.5s, border 0.5s;
   }
+
+  .btnNew {
+    background-color: rgb(214, 18, 28);
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    border: 1px solid cornflowerblue;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+    margin-right: 10px;
+    transition: background-color 0.5s, border 0.5s;
+  }
   
   .btnEdit:hover {
     background-color: rgb(11, 93, 245);
@@ -130,15 +142,26 @@
       rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
   }
   .body{
-
     width: 100%;
-    height: 100%;
-   
-    background-size: 100% 100%;
+    height: 90vh;
+    background-image: url('../images/recipe.jpg') ;
+    background-size: 100% ;
     
 }
 .header{
-  font-size: 60px;
-  color: rgb(117, 107, 107);
+  font-size: 90px;
+  color: rgb(180, 45, 52);
+  font-weight: 700;
+  border: #53545f;
+
+}
+.list {
+  background-color:rgb(92, 79, 79);
+  color: white;
   font-weight: 500;
+  border: 1px solid cornflowerblue;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  margin-right: 10px;
+  transition: background-color 0.5s, border 0.5s;
 }

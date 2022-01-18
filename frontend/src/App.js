@@ -1,16 +1,17 @@
-import React from 'react';                                                                                                                                                           from 'react';
+import React from 'react';
 import './App.css';
-import Layout from './Layout/Layout'
-
-
+import Navbar from './Layout/navBar'
+import Routes from './router';
 
 const App = () => {
-  return(
- <div>
-   <Layout/>
+  return (
+    <div>
+     
+      
+      <Navbar/>
+      <Routes/>
     </div>
-);
+  );
 }
-
 
 export default App;

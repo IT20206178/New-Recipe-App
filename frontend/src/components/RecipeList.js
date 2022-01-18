@@ -6,28 +6,54 @@ import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import navbar from '../components/navbar';
+import Swal from 'sweetalert2';
 
 toast.configure();
 
 function RecipeList() {
     const [recipes, setrecipes] = useState([]);
     
+
+    const deleteConfirm = (recipe) => {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          deleteRecipe(recipe);
+          // Swal.fire(
+          //   'Deleted!',
+          //   'Your file has been deleted.',
+          //   'success'
+          // )
+        }
+      })
+    }
+
     const deleteRecipe = (recipe) => {
-      if (
-        window.confirm(
-          "Recipe " +
-            recipe.recipeid +
-            " (" +
-            recipe.recipename +
-            " " +
+      // if (
+      //   window.confirm(
+      //     "Recipe " +
+      //       recipe.recipeid +
+      //       " (" +
+      //       recipe.recipename +
+      //       " " +
             
-            "will be removed from the database"
-        )
-      ) {
+      //       "will be removed from the database"
+      //   )
+      // ) 
+      {
         axios
           .delete(`http://localhost:8077/recipes/delete/${recipe.recipeid}`)
           .then((res) => {
             console.log(res);
+          
             toast.success("Recipe deleted!", {
               position: toast.POSITION.BOTTOM_RIGHT,
               autoClose: 5000,
@@ -68,8 +94,10 @@ function RecipeList() {
     
     return (
       <>
-    
+      <navbar/>
+      <div className={RecipeStyles.body}>
       <div className="container">
+    
         <div className={RecipeStyles.viewrecipeDiv}>
           <center><h3 className={RecipeStyles.header}>Recipe List</h3></center>
           <br />
@@ -114,7 +142,7 @@ function RecipeList() {
                     <button
                       className={RecipeStyles.btnDelete}
                       onClick={() => {
-                        deleteRecipe(recipe);
+                        deleteConfirm(recipe);
                       }}
                     >
                       Delete
@@ -123,6 +151,17 @@ function RecipeList() {
                 </tr>
               ))}
           </table>
+          <br/>
+          <center>
+          <button
+          className={RecipeStyles.btnNew}
+          onClick = {()=>{
+            history.push(`/addr`)
+          }}>
+            Add a recipe
+          </button>
+          </center>
+        </div>
         </div>
         </div>
   

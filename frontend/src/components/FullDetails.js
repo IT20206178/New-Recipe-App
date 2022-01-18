@@ -51,26 +51,28 @@ function FullList(){
     return(
 
         <div>
+              <div className={styles.body}>
+            <div className="container">
            
-            <div style = {{paddingTop :"50px"}} className ={styles.body}>
+         
             <br/><br/><h3 className={styles.header} style = {{textAlign : 'center'}}>Recipe Details</h3><br/><br/>
-            <div className = {styles.FormContainer}>
+            <div className = {styles.list}>
           
 
-                <Label for = "recipeid">Driver ID</Label><br/>
+                <h4><Label for = "recipeid">Recipe ID</Label></h4><br/>
                 <Input type = 'text'  pattern="[R]{1}-[0-9]{3}" title = "Enter a valid Recipe  ID, EX : R-001"
                 name = "recipeid" value = {recipeid}
                 onChange = {(e) =>{
                     setRecipeid(e.target.value);
                 }}></Input><br/>
 
-                <Label for = "recipename">First Name</Label><br/>
+                <h4><Label for = "recipename">Recipe Name</Label></h4><br/>
                 <Input type = 'text' name = "recipename" value = {recipename}
                 onChange = {(e)=>{
                     setRecipename(e.target.value);
                 }}></Input><br/>
 
-                <Label for = "ingredients">Last Name</Label><br/>
+                <h4><Label for = "ingredients">Ingredients</Label></h4><br/>
                 <Input type = 'text' name = "ingredients" value = {ingredients} 
                 onChange = {(e)=>{
                     setIngredients(e.target.value);
@@ -78,8 +80,8 @@ function FullList(){
 
                 
 
-                <Label for = "description">Description</Label><br/>
-                <Input type = "text" name = "description" value = {description} 
+<               h4><Label for = "description">Description</Label></h4><br/>
+                <textarea type = "text" className="form-control" name = "description" value = {description} 
                 onChange = {(e) =>{
                     setDescription(e.target.value);
                 }}/><br/>
@@ -88,8 +90,10 @@ function FullList(){
 
             </div>
           
-        </div>   
+        </div>  
         </div>
+        </div>
+ 
 
     );
 }
