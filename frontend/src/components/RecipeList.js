@@ -90,6 +90,17 @@ function RecipeList() {
                   <td className={RecipeStyles.tbldata}>{recipe.recipename}</td>
                 
                   <td className={RecipeStyles.tbldata}>
+
+                  <button
+                      className={RecipeStyles.btnFull}
+                      onClick={() => {
+                        //     handleEdit(recipe);
+                        history.push(`/full-recipe/${recipe._id}`);
+                      }}
+                    >
+                      View Full Recipe
+                    </button>
+                    
                     <button
                       className={RecipeStyles.btnEdit}
                       onClick={() => {
